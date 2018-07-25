@@ -231,13 +231,16 @@ void linkedListStackPop(struct linkedListStack *s) {
 
         // FIXME: you must write this
 	   assert(!linkedListStackIsEmpty(s));
-	   struct link *temp;
-	   temp = s->Q1->firstLink;
-	   temp = s->Q2->firstLink;
+	   struct link *temp1;
+	   struct link *temp2;
+	   temp1 = s->Q1->firstLink;
+	   temp2 = s->Q2->firstLink;
 	   s->Q1->firstLink= s->Q1->firstLink->next;
 	   s->Q2->firstLink= s->Q2->firstLink->next;
-	   free(temp);
-	   temp = 0;
+	   free(temp1);
+	   free(temp2);
+	   temp1 = 0;
+	   temp2 = 0;
 
 }
 /*
@@ -340,8 +343,7 @@ int main(int argc, char* argv[])
 
 	printf("One more pop:\n");
 	linkedListStackPop(stack);
-	printf("Value at the top of stack: %d\n",
-linkedListStackTop(stack));
+//	printf("Value at the top of stack: %d\n",linkedListStackTop(stack));
 
 	linkedListStackFree(stack);
 
